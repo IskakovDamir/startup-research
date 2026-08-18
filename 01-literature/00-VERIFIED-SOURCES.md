@@ -142,3 +142,39 @@ Relative value: «For a cost/loss ratio C/L for taking action based on a forecas
 
 - Perdomo, «The Relative Value of Prediction in Algorithmic Decision Making» — прежний уровень `[CITATION-ONLY]` снят, теперь `[FETCHED]`, год ICML 2024 подтверждён.
 - Miller/Perdomo/Zrnic ICML 2021 и Mendler-Dünner et al. NeurIPS 2020 остаются `[CITATION-ONLY]`: подтверждены только строкой в списке публикаций автора, собственный fetch работ не делался.
+
+---
+
+# СЕССИЯ 2026-08-18 (третья) — гейт идентифицируемости
+
+## Yan & Rahal — On the Unknowable Limits to Prediction
+`[FETCHED · препринт прочитан целиком локально из PDF]` · Nature Computational Science 2025; препринт arXiv 2411.19223v5 · https://arxiv.org/pdf/2411.19223
+
+Разложение `y_true = f*(x_true) + ε` с тремя эпистемическими членами (model approximation, measurement of y, measurement of x). Ключевое: «statements regarding 'predictability' and 'irreducibility' ... are entirely conditional on information sets»; «It is impossible to know whether we have eliminated all reducible epistemic error to approach the practical 'ceiling' of accuracy». `x_true` определён как «the best possible feature set both in terms of quantity and in quality». Сноска 2: бинарная классификация оставлена для дальнейшей работы. Допущение об отсутствии distributional shift сформулировано явно.
+
+**Роль в проекте.** Основной вызов блоку 2. Разобран в `03-methodology/01-IDENTIFIABILITY-GATE.md`: область условная, направлена на алеаторный член относительно бесконечного универсума признаков.
+
+## Verzelen & Gassiat — Adaptive estimation of High-Dimensional Signal-to-Noise Ratios
+`[FETCHED · полный текст извлечён локально]` · Bernoulli 2018 (венью подтверждена через OpenAlex); препринт arXiv 1602.08006v2 · https://arxiv.org/abs/1602.08006
+
+Оценка остаточной дисперсии, доли объяснённой дисперсии η и силы сигнала — эквивалентные задачи. Proposition 5.1: при p > n и любом фиксированном дизайне ранга n минимаксный риск оценки η не меньше 1/4. Theorem 4.5 и Remark 4.3: при неизвестной произвольной Σ и n^(1+ς)/p → 0 состоятельная оценка доли объяснённой вариации невозможна.
+
+**Роль в проекте.** Проверенная теорема невозможности, задающая режим (n, p, Σ), в который нельзя заходить. Условие G3 чек-листа гейта.
+
+## Lundberg, Brown-Weinstock, Clampet-Lundquist, Pachman, Nelson, Yang, Edin & Salganik — The origins of unpredictability in life outcome prediction tasks
+`[FETCHED]` · PNAS 2024 · https://pmc.ncbi.nlm.nih.gov/articles/PMC11181083/
+
+Задача предсказания переводится в эквивалентную задачу оценивания; ошибка раскладывается на irreducible error (внутригрупповая дисперсия среди наблюдательно идентичных единиц) и learning error. «irreducible error is a function of the task only, whereas learning error is a function of both the task and the learning approach». Три источника неустранимой ошибки: consequential intervening events, unmeasured features, imperfect measurement. Указывает, что раздельная оценка обеих компонент «is possible in at least some settings», со ссылкой на Fudenberg et al.
+
+**Роль в проекте.** Сдвиг линии Salganik от огибающей соревнования к определению величины. Одновременно занимает часть заранее объявленного исхода C протокола.
+
+## Fudenberg, Kleinberg, Liang & Mullainathan — Measuring the Completeness of Economic Models
+`[FETCHED · препринт «Measuring the Completeness of Theories», arXiv 1910.07022, прочитан локально]` · Journal of Political Economy 2022 · https://arxiv.org/abs/1910.07022
+
+Irreducible error определена как ожидаемая ошибка идеального правила для данного набора признаков. Completeness = отношение достигнутого снижения ошибки к достижимому. Оценщик — Table Lookup по неограниченному классу отображений с кросс-валидацией, «a consistent estimator for the irreducible error», при условии «a large number of observations for each unique feature vector x ∈ X. This requires either that the feature space X is finite...».
+
+**Роль в проекте.** Двойная. (1) Инструмент, закрывающий гейт положительно. (2) **Серьёзный кандидат в prior art для блока 2** — оценённая доля объекта, использованная как нормировка в решении «улучшать модель на тех же признаках или искать новые признаки». Проверяется в Part C.
+
+## Antos, Devroye & Györfi — Lower bounds for Bayes error estimation
+`[МЕТАДАННЫЕ ПОДТВЕРЖДЕНЫ, СОДЕРЖАНИЕ НЕТ]` · IEEE Transactions on Pattern Analysis and Machine Intelligence 1999 · DOI 10.1109/34.777375
+Заголовок, авторы, год, площадка и DOI подтверждены через OpenAlex в сессии 2026-08-18. Полный текст открыть не удалось. Приписываемое содержание (отсутствие универсальной скорости сходимости для distribution-free оценки байесовской ошибки) **не подтверждено**. Ни один вывод в волте на неё не опирается. Не цитировать до fetch.
