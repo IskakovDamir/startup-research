@@ -178,3 +178,65 @@ Irreducible error определена как ожидаемая ошибка и
 ## Antos, Devroye & Györfi — Lower bounds for Bayes error estimation
 `[МЕТАДАННЫЕ ПОДТВЕРЖДЕНЫ, СОДЕРЖАНИЕ НЕТ]` · IEEE Transactions on Pattern Analysis and Machine Intelligence 1999 · DOI 10.1109/34.777375
 Заголовок, авторы, год, площадка и DOI подтверждены через OpenAlex в сессии 2026-08-18. Полный текст открыть не удалось. Приписываемое содержание (отсутствие универсальной скорости сходимости для distribution-free оценки байесовской ошибки) **не подтверждено**. Ни один вывод в волте на неё не опирается. Не цитировать до fetch.
+
+---
+
+# СЕССИЯ 2026-08-18 (четвёртая) — Part C, проверка новизны
+
+> Полный разбор: `02-PRIOR-ART-VERDICT-2026-08-18.md`. Машинный свип: `01-VENUE-SWEEP-2026-08-18.md`.
+
+## Jasberg & Sizov — The Magic Barrier Revisited: Accessing Natural Limitations of Recommender Assessment
+`[FETCHED · препринт, абстракт и введение прочитаны лично]` · arXiv 2017 · https://arxiv.org/pdf/1704.05841
+
+Оценённый из данных пол со стороны объекта плюс правило «дальше улучшать бессмысленно». Величина — тест-ретест шум целевой переменной, получаемый из повторной оценки той же единицы; к набору предикторов инвариантна.
+
+**Роль в проекте.** Ломает трёхветвевое перечисление прежней редакции действующего утверждения. Ближайший предшественник по замыслу; путь получения величины нам закрыт по построению (фирма не проживает исход дважды).
+
+## Said, Jain, Narr, Plumbaum — magic barrier, предшественник
+`[SEARCH-SNIPPET]` · UMAP 2012 · Лично не открывалось; сведения из отчёта агента. **Не цитировать.**
+
+## Catt — Forecastability as an Information-Theoretic Limit on Prediction
+`[FETCHED · абстракт через arXiv API; полный текст НЕ прочитан, скачивание отвалилось по таймауту]` · arXiv, 28 марта 2026 · https://arxiv.org/abs/2603.27074
+
+«Predictive loss decomposes into an irreducible component fixed by the information structure and an approximation component attributable to the method; their ratio defines the exploitation ratio, a normalised diagnostic for method adequacy.» Разложение относительно «declared information set», применённое к решению, стоит ли моделировать.
+
+**Роль в проекте.** Угроза приоритета, не prior art: эмпирической процедуры оценивания в абстракте нет. **Прочитать полный текст до любого письма.**
+
+## Cortes-Gomez, Dulce Rubio, Patino & Wilder — The Limits of AI-Driven Allocation: Optimal Screening under Aleatoric Uncertainty
+`[FETCHED · абстракт через arXiv API]` · arXiv, май 2026 · https://arxiv.org/abs/2605.07979 · список авторов из отчёта агента, `[SEARCH-SNIPPET]`
+
+Критерий распределения ресурса, в котором неустранимая алеаторная неопределённость стоит явно и ведёт решение. Из данных не оценивается.
+
+## Ihlamur — When Career Data Runs Out: Structured Feature Engineering and Signal Limits for Founder Success Prediction
+`[FETCHED · абстракт через arXiv API]` · arXiv, апрель 2026 · https://arxiv.org/abs/2604.00339 · фамилия автора из отчёта агента, `[SEARCH-SNIPPET]`
+
+Предсказание успеха стартапа по карьерным данным основателей. «The signal is weak, the labels are rare (9%), and most founders who succeed look almost identical to those who fail». Признаки из прозы через LLM «capture 26.4% of model importance but add zero CV signal».
+
+**Роль в проекте.** Ближайшая работа по предметной области, четыре месяца. Плато по исчерпанию, не оценка неустранимой доли. Эмпирическая поддержка условия G3 гейта.
+
+## Линия декомпозиции дисперсии прибыльности — уровень OPENALEX-ABSTRACT
+
+Для всех перечисленных подтверждены заголовок, год, площадка, авторы и текст аннотации через OpenAlex. **Полные тексты не читались.** Пометка уровня: `[OPENALEX-ABSTRACT]` — сильнее, чем `[SEARCH-SNIPPET]`, слабее, чем `[FETCHED]`.
+
+- Rumelt, SMJ 1991 — «How much does industry matter?»
+- McGahan & Porter, SMJ 1997 — «How much does industry matter, really?»
+- Fitza, SMJ — CEO-эффект и случайность. **Год расходится: OpenAlex 2013, RePEc по отчёту агента 2014 (онлайн ноябрь 2013).**
+- Fitza, Matusik & Mosakowski, SMJ — «Do VCs matter?». **Год расходится: OpenAlex 2008, RePEc по отчёту агента 2009.**
+- Avnimelech, Dushnitsky & Ellsaesser, SMJ 2024 — акселераторы, байесовская иерархическая декомпозиция
+- Mokhtar, Knockaert & Vanacker, SMJ 2026 — академические спин-оффы
+- Sharapov, Kattuman & Rodríguez, SMJ 2020 — Shapley-подход; зависимость оценок от спецификации
+- Bou & Satorra, SMJ 2007 — постоянная и переходная компоненты
+- Brush & Bromiley, SMJ 1997; Ruefli & Wiggins, SMJ 2003; Andrews, Fainshmidt & Fitza, SMJ 2023
+- Henderson, Raynor & Ahmed, SMJ 2011 — «How long must a firm be great to rule out chance?»
+- Denrell, Management Science 2004 — «Random Walks and Sustained Competitive Advantage»
+
+Через отчёты агентов, `[SEARCH-SNIPPET]`, лично не проверялось: Wang & Coff (ретроспектива линии, Strategic Management Review), Quigley & Graffin SMJ 2017 (оспаривание Fitza), Vanneste 2017 (мета-анализ), Misangyi et al. 2006, Bowman & Helfat 2001, Powell SMJ 1996, Roquebert/Phillips/Westfall SMJ 1996.
+
+## Schmalensee — Do Markets Differ Much?
+`[CITATION-ONLY]` · American Economic Review 1985 · Подтверждён только ссылкой внутри проверенной аннотации Rumelt 1991. Ни OpenAlex, ни Crossref запись не разрешили. **Не цитировать.**
+
+## Смежное, проверено на уровне аннотации OpenAlex
+- Oparina et al., Scientific Reports 2025 — «establish an upper bound on the predictability of wellbeing scores with survey data». Оценённый потолок социального исхода, решения о развёртывании нет.
+- Verhagen, Socius 2022 — «A Pragmatist's Guide to Using Prediction in the Social Sciences». Потолка не оценивает.
+- Qu, Kumar & Tong, Strategy Science 2026 — предсказания в решениях о поглощениях. Аргумент в пользу инвестиций в предсказание, потолка нет.
+- Farmer & Lafond, Research Policy 2016 — распределение ошибок прогноза как функция горизонта, проверено хиндкастингом. Модельная граница при предположенном случайном блуждании.
