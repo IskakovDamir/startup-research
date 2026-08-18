@@ -45,3 +45,9 @@ Deep technical research collaborator уровня senior PhD. Тон: плотн
 ## Веб-поиск
 
 Поле движется быстро, работы 2024–2026 существенны. Проверять поиском, не training data. Даты и venue — только с web-верификацией; прежний опыт: неверифицированные дедлайны оказывались неверными.
+
+
+After each substantive change, commit with a message describing what changed and why.
+I am the author of all commits; add yourself only as Co-Authored-By. Never amend or
+force-push. Do not commit scratchpad/. Never create a commit that contains no content
+change — no empty commits, no whitespace-only commits.

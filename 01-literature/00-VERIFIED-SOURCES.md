@@ -92,3 +92,53 @@ Fused LLM, N=20 172 профиля Crunchbase. Текст самоописани
 - Hassan et al., "Text as Data in Economic Analysis", JEP 2025 — `[CITATION-ONLY]`
 - Kapoor & Narayanan, Patterns 2023 (leakage) — `[CITATION-ONLY]` в этой сессии
 - SSFF, R.A.I.S.E., Beyond Isolated Investor, CrunchLLM — `[SEARCH-SNIPPET]` на уровне существования; содержание не проверено. Нужны только для абзаца «поле перегрето», не для утверждений.
+
+---
+
+# СЕССИЯ ВЕРИФИКАЦИИ 2026-08-18 (вторая) — корпус критериев развёртывания
+
+> Всё в этом разделе получено фетчем в сессии 2026-08-18. Уровень указан у каждой записи. Записи `[FETCHED]` открывались и читались; для двух из них текст извлекался локально из PDF, что помечено отдельно.
+
+## Perdomo — Revisiting the Predictability of Performative, Social Events
+`[FETCHED · локально из PDF]` · ICML 2025 · https://arxiv.org/pdf/2503.11713
+
+Теорема 5.1: существует distribution map, при котором предиктор проходит все ограниченные тесты валидности и при этом его квадратичная ошибка не меньше ошибки любой функции h под индуцированным ею распределением. Подпись к рис. 1: «While calibrated, these maximize squared error since they induce y to be a fair coin toss.» Абстракт: «we establish that one can always efficiently predict social events accurately, regardless of how predictions influence data».
+
+**Роль в проекте.** Снимает аргумент 4 и центральное утверждение прежней редакции тезиса. См. `00-context/03-SUPERSEDED-THESIS-2026-08-18.md`.
+
+## Perdomo — The Relative Value of Prediction in Algorithmic Decision Making
+`[FETCHED · локально из PDF]` · ICML 2024 (строка комментария на arXiv: «accepted to ICML 2024, non-archival track at FORC 2024») · https://arxiv.org/pdf/2312.08511
+
+Prediction-access ratio: отношение предельного выигрыша от улучшения предиктора к выигрышу от расширения доступа. Теорема 1.1 (informal): при линейной модели PAR равен γs/α, где γs² — доля объяснённой дисперсии, α — доля популяции, которую можно охватить. Доля объяснённой дисперсии — **входной параметр**, подставляемый ссылкой на `[REF: Salganik 2020]`. Даёт останавливающий вердикт вида «leave the predictor "as is"».
+
+**Роль в проекте.** Ближайший конкурент по позиционированию и обязательная оговорка к действующему утверждению. Единственный найденный критерий, умеющий останавливать улучшение модели, — но по основанию сравнения рычагов, а не по локализации остатка.
+
+## Vickers & Elkin — Decision curve analysis: a novel method for evaluating prediction models
+`[FETCHED]` · Medical Decision Making 2006 · https://pmc.ncbi.nlm.nih.gov/articles/PMC2577036/
+
+Net benefit против стратегий treat-all / treat-none. Порог решения кодирует относительный вред FP против FN.
+
+**Роль в проекте.** Ближайший предшественник аргумента 1 (skill сверх примитива, не требующего модели) и одна из двух опор действующего утверждения (критерий без потолка вообще).
+
+## Sadatsafavi, Lee & Gustafson — Uncertainty and the Value of Information in Risk Prediction Modeling
+`[FETCHED]` · Medical Decision Making 2022 · https://pmc.ncbi.nlm.nih.gov/articles/PMC9194963/
+
+Discussion, дословно: «The EVPI as defined in this work represents the uncertainty due to the finite development sample, resulting in uncertainty in the regression coefficients of the prediction model. Importantly, this EVPI does not represent the value of knowing the true risk for each individual, which is also a function of predictors that are unknown, unmeasured, or intentionally left out of the model.»
+
+**Роль в проекте.** Дисклеймер авторов ровно про нашу величину. Опора действующего утверждения со стороны метода.
+
+## Murphy — The Value of Climatological, Categorical and Probabilistic Forecasts in the Cost-Loss Ratio Situation
+`[SEARCH-SNIPPET]` · Monthly Weather Review 1977 · https://journals.ametsoc.org/view/journals/mwre/105/7/1520-0493_1977_105_0803_tvocca_2_0_co_2.xml
+Полный текст закрыт: сервер вернул 403. Подтверждены заголовок, год, площадка. Содержание за пределами сниппета НЕ подтверждено — **не цитировать дословно**.
+
+## CAWCR / WWRP-WGNE Forecast Verification — Issues, Methods and FAQ
+`[FETCHED]` · https://www.cawcr.gov.au/projects/verification/verif_web_page.html
+
+Relative value: «For a cost/loss ratio C/L for taking action based on a forecast, what is the relative improvement in economic value between climatological and perfect information?» Skill score: «the reference forecast is usually persistence (no change from most recent observation) or climatology».
+
+**Роль в проекте.** Опора действующего утверждения со стороны оракульного нормировщика; используется вместо закрытого текста Murphy 1977 там, где нужна дословная формулировка.
+
+## Правка к прежним записям
+
+- Perdomo, «The Relative Value of Prediction in Algorithmic Decision Making» — прежний уровень `[CITATION-ONLY]` снят, теперь `[FETCHED]`, год ICML 2024 подтверждён.
+- Miller/Perdomo/Zrnic ICML 2021 и Mendler-Dünner et al. NeurIPS 2020 остаются `[CITATION-ONLY]`: подтверждены только строкой в списке публикаций автора, собственный fetch работ не делался.
