@@ -1,0 +1,131 @@
+# CATT 2026 — оценка угрозы блоку 2
+
+> **Статус:** закрыто 2026-08-18. Полный текст получен и прочитан целиком: HTML-рендер arXiv, зеркало ar5iv и PDF (9 страниц) — все три маршрута сработали. Прошлая сессия читала только абстракт.
+> **Провенанс.** Все цитаты ниже — из полного текста `[FETCH: https://arxiv.org/html/2603.27074v1 · 2026-08-18]`, сверено с PDF `[FETCH: https://arxiv.org/pdf/2603.27074v1 · 2026-08-18]`.
+
+---
+
+# ВЕРДИКТ
+
+**Блок 2 УЦЕЛЕЛ.**
+
+Но уцелел не целиком, и понижение существенное. Первая половина блока 2 — «оцениваемый член доли объекта относительно объявленного информационного множества» — **перестала быть новым ходом**. Она опубликована, с оценщиком и с эмпирической валидацией, и сама по себе восходит не к Catt, а к работе по предсказуемости климата 2004 года, на которую Catt прямо ссылается как на источник тождества.
+
+Уцелело ровно два:
+
+1. **Постановка**, в которой оценщик Catt по его собственному признанию не работает: поперечный срез, одно наблюдение на единицу, редкий бинарный исход, нет истории ряда по фирме.
+2. **Шаг решения**, от которого Catt явно отказывается: «The framework is diagnostic rather than prescriptive ... does not by itself determine a forecasting model or decision rule.»
+
+Это надо прочитать трезво. Центр тяжести работы сместился второй раз. Блок 3 убит `[REF: Perdomo 2025]`. Первая половина блока 2 теперь предвосхищена. Несущая новизна свелась к **одному ходу** — прикрепить оценённую долю объекта к критерию развёртывания с ценами ошибок и базовой ставкой. Оценка этого основания как достаточного для статьи — решение PI, но основание тонкое, и ход этот тоже заселяется: magic barrier уже прикрепляет оценённый пол со стороны объекта к правилу «прекращать настройку», а непроверенная линия оценки байесовской ошибки как проверки выполнимости может прикреплять её к go/no-go.
+
+---
+
+## (a) Общая ли декомпозиция, или специфична для постановки, исключающей нашу
+
+**Формально общая, операционно — временные ряды. Постановку надо назвать точно, потому что от неё зависит всё остальное.**
+
+Постановка, дословно:
+
+> «Let $\{Y_t\}_{t\in\mathbb{Z}}$ be a stochastic process with values in a measurable space $(\mathcal{Y},\mathcal{B})$. At time $t$, the forecaster uses a declared information set $\mathcal{I}_t$, represented as a sub-$\sigma$-algebra. All results are conditional on this choice: different information sets imply different limits on achievable performance.»
+
+То есть: **процесс, индексированный временем; прогнозист в момент t предсказывает $Y_{t+h}$ на горизонте h.** Центральный объект работы — не число, а *профиль* по горизонтам: «Forecastability is not a scalar quantity but a structure over horizons.»
+
+Три ограничения постановки:
+
+- **Стационарность** для интерпретации профиля как функции одного горизонта: Assumption 1(iii). Остальные результаты держатся поточечно по (t,h).
+- **Только логарифмическая потеря.** Точное равенство привязано к ней: «The exact equality is specific to log loss; for other losses, the relationship is an inequality rather than an identity.» И прямо про наш случай: «For practitioners who evaluate forecasts under squared-error loss, CRPS, or quantile loss, the exact equality proved here does not transfer.» Критерии развёртывания — net benefit в decision curve analysis, cost-loss relative value — живут под асимметричной по ценам потерей, не под log loss. Значит именно та точность, ради которой берут это тождество, до нашего решения не доезжает.
+- **Режим оценивания** (см. пункт b) явно ограничен низкоразмерным лаговым случаем.
+
+**Что при этом честно общее.** Само разложение (Proposition 9) сформулировано для суб-σ-алгебр и в этом смысле не привязано к времени. Автор пишет: «The framework extends directly to multivariate information sets: all results are stated in terms of sub-σ-algebras and hold without modification when $\mathcal{I}_t$ includes vector-valued histories, exogenous variables, or mixed-frequency data.» И для дискретного исхода он выписывает границу Фано на вероятность ошибки классификации.
+
+**Вывод по (a).** Наша постановка не исключена алгебраически — она исключена операционно. У нас нет ни горизонта как переменной, ни истории на единицу, ни стационарного процесса на фирму. Профиль по горизонтам, который и составляет содержание работы, у нас не определён.
+
+---
+
+## (b) Оценивается ли неустранимая компонента из данных, или предполагается / подставляется оракулом
+
+**Оценивается из данных. Это ответ, который бьёт сильнее всего, и прошлая сессия его не имела.**
+
+Раздел VII целиком об этом. Дословно:
+
+> «The results above are stated in terms of the true forecastability $F(h;\mathcal{I}_t)$. In practice, this must be estimated from data.»
+
+Инструмент — k-ближайших соседей Kraskov–Stögbauer–Grassberger, «which avoids explicit density estimation and is consistent under regularity conditions». Нулевая гипотеза — перестановочный тест. И есть эмпирика:
+
+> «The companion empirical work [3] validates the diagnostic in this regime across more than 42,000 series.»
+
+а в заключении — с проверкой против реальной ошибки вне выборки:
+
+> «auto-mutual information computed strictly from training data exhibits Spearman rank correlations of −0.41 to −0.72 with out-of-sample sMAPE for five of six temporal frequencies, and median forecast error declines monotonically from low to high forecastability terciles across all frequencies and probe models»
+
+Компаньон — `[REF: Catt companion 2026]`, рукопись на рецензии, SSRN. **Не открыта. Это первоочередной след следующей сессии.**
+
+Итак: не оракул, не предположение. Оценка, валидированная против out-of-sample точности.
+
+### Но оценщик упирается в ту же стену, что и наш гейт, и автор это пишет
+
+> «The main practical constraint is the dimensionality of $\mathcal{I}_t$: in low-dimensional lag-based settings, the estimator is reliable for moderate sample sizes, but in higher-dimensional settings, finite-sample bias and variance grow and may make the diagnostic as demanding as the modelling it is intended to precede. In principle, richer information sets can only increase true forecastability, but in finite samples they may make estimated forecastability less reliable.»
+
+И рабочий режим назван явно:
+
+> «the diagnostic is most tractable in the univariate lag-based setting where $\mathcal{I}_t=\sigma(Y_t,\ldots,Y_{t-p+1})$ with $p\leq 3$, series lengths $n\geq 200$»
+
+Формальной теории оценивания нет: «Formal estimation theory—including finite-sample convergence rates, minimax bounds, and the interaction between lag dimension and sample size—is not developed here and remains an open direction.»
+
+**Это независимое подтверждение гейта, и его надо занести как таковое.** Три линии, не связанные между собой — высокоразмерная статистика `[REF: Verzelen & Gassiat 2018]`, completeness `[REF: Fudenberg et al. 2022]` и теперь информационно-теоретическая прогностика — упираются в одну и ту же размерностную стену и выходят из неё одним и тем же способом: огрублением. Условия G1–G3 в `03-methodology/01-IDENTIFIABILITY-GATE.md` получили третье независимое подтверждение.
+
+**И это же ограничивает угрозу.** Оценщик Catt — оценщик взаимной информации на низкоразмерном лаговом пространстве одного ряда. Он не является оценщиком условной дисперсии или байесовской ошибки по выбранному аналитиком поперечному вектору признаков при одном наблюдении на единицу. Перенос не механический; он требует другого оценщика в режиме, где у Catt по его собственным словам диагностика становится «as demanding as the modelling it is intended to precede».
+
+---
+
+## (c) Предложено ли отношение как критерий развёртывания или остановки, или только как описательная диагностика
+
+**Явно как диагностика, и автор отказывается от решающего правила прямым текстом.**
+
+> «The framework is diagnostic rather than prescriptive: it characterises the information-limited structure of the forecasting problem, but does not by itself determine a forecasting model or decision rule.»
+
+> «the practical role of forecastability is to constrain that wider search, not to replace modelling altogether»
+
+Останавливающая логика при этом присутствует, и её надо признать:
+
+> «The standard response to poor forecasting accuracy, namely increasing model complexity, is effective only if the approximation component is the binding constraint. When it is the irreducible component that dominates, no amount of additional complexity can help: when forecastability is near zero, all methods converge toward the same floor.»
+
+> «When forecastability is high, model improvement can reduce the approximation component and is therefore productive. When forecastability is low, the achievable improvement is tightly bounded, and increasing complexity risks overfitting without meaningful gain.»
+
+**Различение, на котором держится остаток блока 2.** Это решение о том, **куда вкладывать усилие моделирования** — по горизонтам, до выбора класса моделей. Это не решение о том, **разворачивать ли систему**. Отсутствует всё, из чего состоит критерий развёртывания: цена ложноположительного и ложноотрицательного, базовая ставка исхода, порог, чистая выгода, сравнение с решением без модели. Ни одного из этих объектов в работе нет.
+
+Отношение χ_q = X_q/F названо «exploitation ratio» и определено post hoc: «exploitability is method-dependent and can only be evaluated post-modelling». То есть оно оценивает уже построенный метод, а не решает, строить ли.
+
+---
+
+## (d) Покрывает ли что-нибудь в работе фирмы или организации
+
+**Нет. Ноль.** Полнотекстовый поиск по словам firm, company, organisation, business, startup, venture даёт совпадения только в списке литературы (Econometrica, «business cycle» в заголовке Hamilton 1989) и в обороте «The paper is organised as follows». Примеры в теле — гауссовские процессы и месячный ряд с годовой сезонностью. Валидация компаньона — по корпусу временных рядов.
+
+---
+
+## Что именно занято, а что нет — сводка для протокола
+
+**Занято:**
+
+- Разложение предсказательной потери на неустранимую компоненту, фиксированную информационной структурой, и компоненту приближения, относимую к методу. Причём тождество не принадлежит Catt: «This identity is established in the predictability literature by DelSole [6]» — `[REF: DelSole 2004]`, Journal of the Atmospheric Sciences, предсказуемость климата. **Понятию двадцать два года, а не пять месяцев.**
+- Формулировка относительно **объявленного информационного множества**, с явным «All results are conditional on this choice». Это ровно тот ход, которым гейт снимал возражение `[REF: Yan & Rahal 2025]`. Ход не наш.
+- Нормированное отношение как диагностика адекватности метода.
+- Оценивание из данных с валидацией против out-of-sample точности.
+- Рамка двух рычагов: обогащать информационное множество против улучшать метод.
+
+**Не занято:**
+
+- Поперечная постановка с одним наблюдением на единицу и редким бинарным исходом. Оценщик Catt туда не переносится по его же ограничению размерности.
+- Шаг решения о развёртывании с ценами ошибок и базовой ставкой. Отказ прямой и в тексте.
+- Фирмы и организации.
+- Асимметричная по ценам потеря: точное равенство до неё не доезжает по признанию автора.
+
+---
+
+## Следствия, которые надо провести по волту
+
+1. **Формулировка вклада в `00-THESIS.md` сужается.** Заявлять «оцениваемый член доли объекта относительно объявленного информационного множества» как вклад больше нельзя — это DelSole 2004 в изложении Catt 2026. Заявлять можно только связку «оценка в поперечной редкобинарной постановке **плюс** вердикт развёртывания».
+2. **Catt и DelSole цитируются внутри собственной рамки работы**, а не в фоне. Иначе рецензент решит, что мы их не читали.
+3. **Гейт усилен третьим независимым подтверждением** размерностной стены.
+4. **Открытый след:** компаньон Catt на SSRN, рукопись на рецензии. Если в ней есть шаг решения — остаток блока 2 закрывается. Проверить первым делом.
