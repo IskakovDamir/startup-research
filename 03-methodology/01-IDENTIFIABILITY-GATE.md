@@ -192,3 +192,25 @@ Irreducible error определена как внутригрупповая д�
 - **D3 (состав зоопарка) теперь подчинён гейту.** Разнообразие архитектур не может расширять признаковое пространство, не переводя работу в ветку интервала. Записать в `02-OPEN-DECISIONS.md`.
 - **D2 (исход) получил два новых критерия отбора:** базовая ставка (G6) и чувствительность к каналу капитала (G7).
 - **Заранее объявленный исход C протокола** сохраняет силу как пре-регистрация, но теряет статус новизны.
+
+---
+
+# ДОПОЛНЕНИЕ 2026-08-18 (часть B): четвёртое подтверждение и готовый оценщик для нашего режима
+
+Гейт закрывался на трёх линиях. Появились ещё две, обе проверены фетчем в той же сессии.
+
+**Четвёртое подтверждение размерностной стены.** `[REF: Catt 2026]`: «in higher-dimensional settings, finite-sample bias and variance grow and may make the diagnostic as demanding as the modelling it is intended to precede» `[FETCH: https://arxiv.org/html/2603.27074v1 · 2026-08-18]`. Информационно-теоретическая прогностика приходит к той же стене, что высокоразмерная статистика и completeness, и выходит из неё тем же способом — огрублением.
+
+**Готовый оценщик ровно для нашего режима.** `[REF: ILD 2021]`, «A Model-Agnostic Algorithm for Bayes Error Determination in Binary Classification», полный текст прочитан `[FETCH: https://arxiv.org/pdf/2107.11609 · 2026-08-18]`. Определяет байесовскую ошибку для **бинарного исхода при категориальных признаках**, без модели. Их «feature bucket» — «a possible combination of the values» признаков — это буквально ковариатная ячейка условий G1–G2.
+
+Их ограничение слово в слово воспроизводит G2:
+
+> «the ILD algorithm works well when the different buckets are populated with enough observations. The ILD algorithm would not give any useful information on a dataset with just one observation in each bucket (since it would be a perfect dataset).»
+
+И их собственная оговорка, которую надо унаследовать как ограничение протокола:
+
+> «there is a big assumption made, namely, that a feature bucket with a few observations contains the same information as one with one thousand observations in it. In real life, one feature bucket with just one (or few) observation will probably be due to the lack of observations collected with the given set of features and therefore should be doubted in its importance.»
+
+**Следствие для чек-листа.** G2 получает второй артефакт проверки: не только доля выборки в ячейках с числом фирм не ниже m, но и **взвешивание ячеек по населённости** при агрегировании, потому что иначе редконаселённые ячейки входят в оценку с тем же весом, что густонаселённые, и завышают кажущуюся детерминированность.
+
+**Нерешённое у них, наследуется нам.** Отделение достижимой точности от переобучения: «how to determine the maximum accuracy or the best AUC only in cases in which no overfitting is occurring. This is a nontrivial problem that is currently under investigation by the authors.» Наш as-of holdout блока 1 — это ровно тот аппарат, которого им не хватает, и здесь блок 1 перестаёт быть чистой гигиеной.

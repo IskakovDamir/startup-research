@@ -240,3 +240,40 @@ Irreducible error определена как ожидаемая ошибка и
 - Verhagen, Socius 2022 — «A Pragmatist's Guide to Using Prediction in the Social Sciences». Потолка не оценивает.
 - Qu, Kumar & Tong, Strategy Science 2026 — предсказания в решениях о поглощениях. Аргумент в пользу инвестиций в предсказание, потолка нет.
 - Farmer & Lafond, Research Policy 2016 — распределение ошибок прогноза как функция горизонта, проверено хиндкастингом. Модельная граница при предположенном случайном блуждании.
+
+---
+
+# СЕССИЯ 2026-08-18 (пятая) — Catt, ILD, DataEval, Avnimelech
+
+## Catt — Forecastability as an Information-Theoretic Limit on Prediction
+`[FETCHED · ПОЛНЫЙ ТЕКСТ, три маршрута: HTML arXiv, ar5iv, PDF]` · arXiv, 28 марта 2026 · https://arxiv.org/abs/2603.27074
+Прежняя запись `[FETCHED · только абстракт]` заменена. Разбор: `02-CATT-2026-ASSESSMENT.md`.
+
+Постановка — процесс, индексированный временем, прогноз $Y_{t+h}$ при объявленном информационном множестве как суб-σ-алгебре. Proposition 9: ожидаемая log-потеря = условная энтропия (неустранимое) + ожидаемая KL-дивергенция (приближение). Тождество автор относит не к себе: «This identity is established in the predictability literature by DelSole [6]». Раздел VII: величина **оценивается из данных** оценщиком взаимной информации KSG, с перестановочным нулём; компаньон валидирует на более чем 42 000 рядов против out-of-sample sMAPE. Раздел VIII: «The framework is diagnostic rather than prescriptive ... does not by itself determine a forecasting model or decision rule.» Точное равенство только для log loss; «For practitioners who evaluate forecasts under squared-error loss, CRPS, or quantile loss, the exact equality proved here does not transfer.» Содержания про фирмы и организации нет.
+
+## DelSole — Predictability and information theory. Part I: Measures of predictability
+`[CITATION-ONLY]` · Journal of the Atmospheric Sciences 2004 · Источник тождества, на который ссылается Catt. Сам не открывался. **Не цитировать до fetch** — но знать, что понятию двадцать два года.
+
+## Catt — компаньон, эмпирическая работа
+`[CITATION-ONLY]` · рукопись на рецензии, SSRN, 2026 · doi 10.2139/ssrn.6416626 · Не открыта. **Первоочередной след:** если там есть шаг решения, остаток блока 2 закрывается.
+
+## ILD — A Model-Agnostic Algorithm for Bayes Error Determination in Binary Classification
+`[FETCHED · полный текст]` · arXiv 2021 · https://arxiv.org/abs/2107.11609
+
+Байесовская ошибка для бинарного исхода при категориальных признаках, без модели, через «feature buckets» — комбинации значений признаков. Авторы прямо называют решения, которые величина обслуживает: «to decide when to stop searching for better models; to decide if it is necessary to enrich the dataset». Ограничение: ячейки должны быть населены; при одном наблюдении на ячейку алгоритм бесполезен. Нерешённое: отделение достижимой точности от переобучения.
+
+**Роль в проекте.** Двойная. Берёт глагол «улучшать» из прежней формулировки утверждения. И одновременно даёт готовый оценщик для режима, в который загоняет гейт.
+
+## DataEval — документация функции `ber`
+`[FETCHED]` · документация инструмента, версия 0.69.2 · https://dataeval.readthedocs.io/en/v0.69.2/concepts/BER.html
+
+«The ber function assesses the feasibility of a machine learning classification task by estimating this error rate ... If this difficulty surpasses operational performance requirements, then the problem must be changed in order to become feasible.» Оценщики — kNN и минимальное остовное дерево, из линии границ на многоклассовую байесовскую ошибку.
+
+**Уровень:** документация инструмента, не критерий в литературе. Но проверка выполнимости против операционного требования по точности сформулирована явно.
+
+## Avnimelech, Dushnitsky & Ellsaesser — Are accelerators akin to breweries or wineries?
+`[FETCHED · полный текст, репозиторий London Business School]` · Strategic Management Journal 2024 · https://lbsresearch.london.edu/id/eprint/3828/
+
+Байесовская иерархическая декомпозиция дисперсии результативности стартапов по акселератору, менеджеру, когорте, индустрии и году. Остаток определён в модели: «The error term ε_s captures startup-specific idiosyncratic performance differences.» **В таблице результатов строки остатка нет.** Проверено лично на первичном тексте.
+
+**Роль в проекте.** Прямое подтверждение B2: в живой линии нашей предметной области величина определяется в модели и опускается в результатах.
