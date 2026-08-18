@@ -277,3 +277,22 @@ Irreducible error определена как ожидаемая ошибка и
 Байесовская иерархическая декомпозиция дисперсии результативности стартапов по акселератору, менеджеру, когорте, индустрии и году. Остаток определён в модели: «The error term ε_s captures startup-specific idiosyncratic performance differences.» **В таблице результатов строки остатка нет.** Проверено лично на первичном тексте.
 
 **Роль в проекте.** Прямое подтверждение B2: в живой линии нашей предметной области величина определяется в модели и опускается в результатах.
+
+---
+
+# СЕССИЯ 2026-08-18 (шестая) — компаньон Catt
+
+## Catt — Horizon-resolved Forecastability of Time Series via Auto Mutual Information
+`[FETCHED · ПОЛНЫЕ ТЕКСТЫ ДВУХ ВЕРСИЙ]` · arXiv `2601.10006`, v1 январь 2026, v5 август 2026 · https://arxiv.org/abs/2601.10006
+
+Эмпирический компаньон к теоретической работе `2603.27074`. Отождествление с SSRN-записью 10.2139/ssrn.6416626 — **вывод по совпадению содержания, не подтверждённый факт**: SSRN закрыт Cloudflare и лично не открывался; аннотация SSRN получена через Crossref и совпадает с версиями v1–v4 по объёму данных (42 355 рядов, шесть частот) и метрике (sMAPE). Заголовки разные.
+
+v4: триаж рядов по терцилям AMI на категории действия «invest in modelling / model cautiously / manage uncertainty»; раздел «Implications for Decision Workflows»; gating rule по многомерному обогащению. Ни цен ошибок, ни базовой ставки. v5: рескоуп на M4 Monthly под официальный holdout, связь заметно слабее, слой решения вынесен в future work — «developing and evaluating such decision layers is future work». Ключевое ограничение самого автора: «high AMI evidences recoverable structure, whereas low AMI does not establish its absence».
+
+**Роль в проекте.** Оставляет зазор открытым. Разбор: `03-CATT-COMPANION-ASSESSMENT.md`.
+
+## Catt — On the Limits of Prediction: Forecastability Profiles and Information Decay in Time Series
+`[МЕТАДАННЫЕ ЧЕРЕЗ arXiv API]` · arXiv `2603.20546` · Предшественник теоретической работы, снят самим автором: «Resubmitted as a highly revised paper — [arXiv:2603.27074]». Отдельной ценности не имеет.
+
+## SSRN 10.2139/ssrn.6416626 — аннотация
+`[FETCHED через Crossref API]` · https://api.crossref.org/works/10.2139/ssrn.6416626 · Полный текст НЕ открыт: SSRN закрыт Cloudflare, DOI отдаёт 403. Аннотация подтверждена дословно.
