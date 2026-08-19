@@ -1,0 +1,243 @@
+ L0 K=  22609 occ=0.9348 I_P=0.9055 B_pi=0.5922 B_cv=0.8117 w=0.2195
+ L1 K=   8522 occ=0.9799 I_P=0.8856 B_pi=0.7178 B_cv=0.8082 w=0.0904
+ L2 K=   2898 occ=0.9949 I_P=0.8772 B_pi=0.8434 B_cv=0.8764 w=0.0330
+ L3 K=   1149 occ=0.9987 I_P=0.8761 B_pi=0.8837 B_cv=0.8935 w=0.0098
+ L4 K=    275 occ=0.9998 I_P=0.8759 B_pi=0.9070 B_cv=0.9095 w=0.0025
+ L5 K=     50 occ=1.0000 I_P=0.8759 B_pi=0.9668 B_cv=0.9672 w=0.0004
+ L6 K=     10 occ=1.0000 I_P=0.8759 B_pi=0.9702 B_cv=0.9702 w=0.0001
+ L7 K=      2 occ=1.0000 I_P=0.8759 B_pi=0.9752 B_cv=0.9752 w=0.0000
+ L8 K=      1 occ=1.0000 I_P=0.8759 B_pi=1.0000 B_cv=1.0000 w=0.0000
+{
+ "n": 199523,
+ "pi": 0.06205800834991455,
+ "cardinalities": {
+  "education": 17,
+  "major occupation code": 15,
+  "class of worker": 9,
+  "full or part time employment stat": 8,
+  "marital stat": 7,
+  "citizenship": 5,
+  "race": 5,
+  "sex": 2
+ },
+ "order": [
+  "education",
+  "major occupation code",
+  "class of worker",
+  "full or part time employment stat",
+  "marital stat",
+  "citizenship",
+  "race",
+  "sex"
+ ],
+ "levels": [
+  {
+   "level": "L0",
+   "features": [
+    "education",
+    "major occupation code",
+    "class of worker",
+    "full or part time employment stat",
+    "marital stat",
+    "citizenship",
+    "race",
+    "sex"
+   ],
+   "K_occupied": 22609,
+   "occ": 0.9347543892182856,
+   "I_P": 0.9054545090039745,
+   "B_pi": 0.5922218921358241,
+   "B_cv": 0.8117351598543432,
+   "eps_pi": 0.034471348307960434,
+   "eps_cv": 0.047248515802484924,
+   "bracket_width": 0.2195132677185191,
+   "B_L": 0.5541561837969711,
+   "B_boot_median": 0.5600905737683319
+  },
+  {
+   "level": "L1",
+   "features": [
+    "major occupation code",
+    "class of worker",
+    "full or part time employment stat",
+    "marital stat",
+    "citizenship",
+    "race",
+    "sex"
+   ],
+   "K_occupied": 8522,
+   "occ": 0.9799020664284318,
+   "I_P": 0.8856472687359352,
+   "B_pi": 0.7177966190018176,
+   "B_cv": 0.8082223838276689,
+   "eps_pi": 0.04178065282026623,
+   "eps_cv": 0.04704404830887938,
+   "bracket_width": 0.0904257648258513
+  },
+  {
+   "level": "L2",
+   "features": [
+    "class of worker",
+    "full or part time employment stat",
+    "marital stat",
+    "citizenship",
+    "race",
+    "sex"
+   ],
+   "K_occupied": 2898,
+   "occ": 0.9948627476531527,
+   "I_P": 0.8772171629335966,
+   "B_pi": 0.8434121129918472,
+   "B_cv": 0.8764489122448752,
+   "eps_pi": 0.04909233025689453,
+   "eps_cv": 0.05101529701843078,
+   "bracket_width": 0.03303679925302805
+  },
+  {
+   "level": "L3",
+   "features": [
+    "full or part time employment stat",
+    "marital stat",
+    "citizenship",
+    "race",
+    "sex"
+   ],
+   "K_occupied": 1149,
+   "occ": 0.9986868681806108,
+   "I_P": 0.8760644136264992,
+   "B_pi": 0.8837081321842092,
+   "B_cv": 0.8935255053069184,
+   "eps_pi": 0.051437833068340065,
+   "eps_cv": 0.05200927105953223,
+   "bracket_width": 0.00981737312270925
+  },
+  {
+   "level": "L4",
+   "features": [
+    "marital stat",
+    "citizenship",
+    "race",
+    "sex"
+   ],
+   "K_occupied": 275,
+   "occ": 0.9998496413947264,
+   "I_P": 0.8759040311142073,
+   "B_pi": 0.9070259222853175,
+   "B_cv": 0.9095159121359573,
+   "eps_pi": 0.052795087291834505,
+   "eps_cv": 0.052940021662827,
+   "bracket_width": 0.002489989850639751
+  },
+  {
+   "level": "L5",
+   "features": [
+    "citizenship",
+    "race",
+    "sex"
+   ],
+   "K_occupied": 50,
+   "occ": 0.9999899760929818,
+   "I_P": 0.8758839833001709,
+   "B_pi": 0.9667749318866402,
+   "B_cv": 0.9672058549546911,
+   "eps_pi": 0.05627288665787094,
+   "eps_cv": 0.056297969315857704,
+   "bracket_width": 0.00043092306805092573
+  },
+  {
+   "level": "L6",
+   "features": [
+    "race",
+    "sex"
+   ],
+   "K_occupied": 10,
+   "occ": 1.0,
+   "I_P": 0.8758839833001709,
+   "B_pi": 0.9701804920496101,
+   "B_cv": 0.9702333705448313,
+   "eps_pi": 0.05647111345785983,
+   "eps_cv": 0.056474191346487346,
+   "bracket_width": 5.2878495221175825e-05
+  },
+  {
+   "level": "L7",
+   "features": [
+    "sex"
+   ],
+   "K_occupied": 2,
+   "occ": 1.0,
+   "I_P": 0.8758839833001709,
+   "B_pi": 0.9751591444535459,
+   "B_cv": 0.9751706581670807,
+   "eps_pi": 0.05676090494209793,
+   "eps_cv": 0.05676157511865649,
+   "bracket_width": 1.1513713534805348e-05
+  },
+  {
+   "level": "L8",
+   "features": [],
+   "K_occupied": 1,
+   "occ": 1.0,
+   "I_P": 0.8758839833001709,
+   "B_pi": 1.0,
+   "B_cv": 1.0000000012003085,
+   "eps_pi": 0.05820681194955648,
+   "eps_cv": 0.058206812019422606,
+   "bracket_width": 1.200308519244686e-09
+  }
+ ],
+ "reading_level": "L0",
+ "bound_table": [
+  {
+   "p_t": 0.02,
+   "U_ours": 0.06348740027229997,
+   "U_naive": 0.1034904766686295,
+   "ratio": 1.630094730997879,
+   "delta_overlap": false
+  },
+  {
+   "p_t": 0.05,
+   "U_ours": 0.07867696607369194,
+   "U_naive": 0.12079158290938789,
+   "ratio": 1.5352852167208602,
+   "delta_overlap": false
+  },
+  {
+   "p_t": 0.1,
+   "U_ours": 0.07086638580159571,
+   "U_naive": 0.11460230375240435,
+   "ratio": 1.6171602721952816,
+   "delta_overlap": false
+  },
+  {
+   "p_t": 0.2,
+   "U_ours": 0.04633804378433989,
+   "U_naive": 0.08748094629188748,
+   "ratio": 1.8878860467012633,
+   "delta_overlap": true
+  },
+  {
+   "p_t": 0.3,
+   "U_ours": 0.03528834726071525,
+   "U_naive": 0.0720812391343734,
+   "ratio": 2.0426357347321233,
+   "delta_overlap": true
+  },
+  {
+   "p_t": 0.5,
+   "U_ours": 0.028688842327959596,
+   "U_naive": 0.06205800834991454,
+   "ratio": 2.1631409047633126,
+   "delta_overlap": true
+  }
+ ],
+ "sigma_ours": 0.16109359754069164,
+ "sigma_naive": 0.24126087944288954,
+ "R1": true,
+ "R2": true,
+ "R3": true,
+ "D_a": false,
+ "D_b": false,
+ "D_c": false,
+ "verdict": "REGION NON-EMPTY"
+}

@@ -15,19 +15,24 @@ P_T_GRID = [0.02, 0.05, 0.10, 0.20, 0.30, 0.50]
 DELTA_LO, DELTA_HI = 0.001, 0.05
 OCC_MIN, BRACKET_MAX, B_MIN, PI_MAX = 0.90, 0.25, 0.5, 0.15
 
-# ---- declared feature set S (declared before the run) -----------------------
-S = ['AHGA', 'AMJOCC', 'ACLSWKR', 'AWKSTAT', 'AMARITL', 'PRCITSHP', 'ARACE', 'ASEX']
-TARGET, POS_PREFIX = 'income', '50000+'
+# ---- declared feature set S (declared in 00b-DATASET-CHOICE.md before the run)
+# census-income.data has no header; positions follow the attribute order in
+# census-income.names.
+COL = {'education': 4, 'major occupation code': 9, 'class of worker': 1,
+       'full or part time employment stat': 15, 'marital stat': 7,
+       'citizenship': 35, 'race': 10, 'sex': 12}
+S = list(COL)
+TARGET_IDX, POS_PREFIX, NCOL = 41, '50000+', 42
 
 
 def load(path):
     with open(path, newline='') as fh:
-        rows = list(csv.DictReader(fh))
-    rows = [r for r in rows if r.get(TARGET) is not None]
-    y = np.array([1 if r[TARGET].strip().startswith(POS_PREFIX) else 0 for r in rows], dtype=np.int64)
+        rows = [r for r in csv.reader(fh) if len(r) >= NCOL]
+    y = np.array([1 if r[TARGET_IDX].strip().startswith(POS_PREFIX) else 0 for r in rows],
+                 dtype=np.int64)
     codes, cards = {}, {}
     for f in S:
-        vals = [r[f].strip() if r[f] is not None else '__MISSING__' for r in rows]
+        vals = [r[COL[f]].strip() or '__MISSING__' for r in rows]
         uniq = sorted(set(vals))
         idx = {v: i for i, v in enumerate(uniq)}
         codes[f] = np.array([idx[v] for v in vals], dtype=np.int64)
