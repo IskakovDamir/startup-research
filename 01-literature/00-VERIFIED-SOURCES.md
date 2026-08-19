@@ -296,3 +296,50 @@ v4: триаж рядов по терцилям AMI на категории де
 
 ## SSRN 10.2139/ssrn.6416626 — аннотация
 `[FETCHED через Crossref API]` · https://api.crossref.org/works/10.2139/ssrn.6416626 · Полный текст НЕ открыт: SSRN закрыт Cloudflare, DOI отдаёт 403. Аннотация подтверждена дословно.
+
+---
+
+# СЕССИЯ 2026-08-20 (восьмая) — занятость границы `G ≤ σ/2`
+
+## Cover & Hart 1967 — Nearest Neighbor Pattern Classification
+`[FETCHED · ПОЛНЫЙ ТЕКСТ]` · IEEE Transactions on Information Theory 13(1):21–27 · https://isl.stanford.edu/~cover/papers/transIT/0021cove.pdf
+
+Подтверждено дословно: ур. (25) `R = 2R*(1 − R*) − 2 Var r*(x)`, ур. (26) `R ≤ 2R*(1 − R*)`, «with equality iff `Var r* = 0`». Здесь `r*(x) = min(η, 1−η)`.
+
+**Роль в проекте.** Симметричный частный случай (`π = a = ½`) нашей границы `G ≤ σ/2` — это ровно ур. (26) после перестановки. Одна из линий занятости. Разбор: `06-BOUND-PRIOR-ART-2026-08-20.md`.
+
+## Scarf 1958 — A Min-Max Solution of an Inventory Problem
+`[ATTRIBUTED-THROUGH-FETCHED]` · существование и метаданные по OpenAlex (`W2558813012`, `W431821928`); **оригинал НЕ открывался**.
+
+Формулировка неравенства взята из прочитанного независимого источника, который её приводит и атрибутирует Скарфу: `E(X−q)⁺ ≤ [μ−q+√((μ−q)²+σ²)]/2`. **Цитировать оригинал дословно нельзя.** Для вывода о занятости достаточно: неравенство приводится и используется как общеизвестное.
+
+**Роль в проекте.** Главная линия занятости границы `G ≤ σ/2`: наша граница — значение правой части при `q = π`, а опубликованная форма острее.
+
+## Li & Prokhorov — Improved Semi-Parametric Bounds for Tail Probability and Expected Loss
+`[FETCHED · ПОЛНЫЙ ТЕКСТ HTML]` · arXiv `2404.02400v3`, econ.EM, май 2025 · https://arxiv.org/html/2404.02400v3
+
+Источник формулировки неравенства Скарфа и его контекста («Scarf's inequality is a well-known bound on linear expected loss»), а также перечня применений: ценообразование опционов `[REF: Lo 1987]`, страхование, управление запасами.
+
+## Gail & Pfeiffer 2009 — Measures to Summarize and Compare the Predictive Capacity of Markers
+`[FETCHED · ПОЛНЫЙ ТЕКСТ]` · https://pmc.ncbi.nlm.nih.gov/articles/PMC2827895/
+
+Подтверждено дословно: `TG = ∫₀¹ |R(ν) − ρ| dν` с атрибуцией Bura & Gastwirth 2001; `PEV = var(risk(Y))/ρ(1−ρ)`; тождество `TG = 2ρ(1−ρ){TPR(ρ) − FPR(ρ)} = 2ρ(1−ρ)·supₜ{ROC(t) − t}` и то, что максимум `TPR(p) − FPR(p)` достигается при `p = ρ`.
+
+**Роль в проекте.** `2·G(π) = TG`, `1 − B = PEV`. Обе наши величины названы здесь как стандартные меры и стоят соседними разделами.
+
+## Bura & Gastwirth 2001 — The Binary Regression Quantile Plot
+`[ATTRIBUTED-THROUGH-FETCHED]` · Biometrical Journal · метаданные по OpenAlex (`W2112446629`); **оригинал НЕ открывался**. Определение Total Gain и граница `TG ≤ 2ρ(1−ρ)` подтверждены через два независимых прочитанных источника (`PMC2827895`, `PMC4486698`). Цитировать дословно нельзя.
+
+## Choodari-Oskooei, Royston & Parmar 2015 — The Extension of Total Gain (TG) Statistic in Survival Models
+`[FETCHED · ПОЛНЫЙ ТЕКСТ]` · BMC Med Res Methodol 15:50 · https://pmc.ncbi.nlm.nih.gov/articles/PMC4486698/
+
+Подтверждено дословно: `TG = ∫₀¹ |R(υ) − π₀| dυ`, `TG_STD = TG/(2π₀(1−π₀))`, и прямое сопоставление L1-версии (TG, «mean absolute deviation») с L2-версией (`R²_Pepe`, «mean squared deviation»).
+
+## Reid & Williamson 2009 — Information, Divergence and Risk for Binary Experiments
+`[FETCHED · ПОЛНЫЙ ТЕКСТ]` · arXiv `0901.0356` · https://ar5iv.labs.arxiv.org/html/0901.0356
+
+**Повышение уровня провенанса:** в прошлой сессии работа бралась только по абстракту (PDF отваливался по таймауту дважды, ar5iv и HTML не отвечали). 2026-08-20 ar5iv отдал полный текст.
+
+Подтверждено дословно: статистическая информация `ΔL̲(η,M) = L̲(π,M) − L̲(η,M)`, введена DeGroot 1962, выражается как «concave Jensen gap»; примитивы всей конструкции «all are related to cost-sensitive binary classification».
+
+**Отрицательный результат, важный для протокола:** моментной границы там нет. «Scarf» не встречается, «variance» встречается пять раз и не в роли границы; выводимые границы — суррогатные и пинскеровского типа через вариационную дивергенцию.
