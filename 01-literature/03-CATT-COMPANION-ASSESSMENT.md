@@ -9,6 +9,39 @@
 
 **Остаточный зазор ОТКРЫТ.**
 
+**И отдельно, повышено 2026-08-19: величина Catt направлена не в ту сторону, чтобы быть конкурентом.** Раздел ниже стоял предпоследним в этом файле. Это было неверное место — из всего, что дал разбор компаньона, это самое существенное.
+
+---
+
+# НАПРАВЛЕННОСТЬ ОЦЕНКИ — главное в этом файле
+
+> Повышено из предпоследнего раздела 2026-08-19. Все цитаты переустановлены фетчем в этой сессии: `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]`. Фетч прошлой сессии не засчитывается.
+
+AMI — оценка **снизу** на доступную зависимость, а не оценка потолка. Автор говорит это прямым текстом, в разделе ограничений:
+
+> «The reading is therefore one-sided: high AMI evidences recoverable structure, whereas low AMI does not establish its absence.» `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]`
+
+и раньше, там, где объясняет смысл меры:
+
+> «Low AMI does not mean a series should not be forecast; it means the measured single-lag dependence is weak at the relevant horizon, so any forecasting skill must come from information beyond that signal» `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]`
+
+## Почему это структурно, а не оговорка: четыре механизма, все в тексте v5
+
+1. **Информационное множество диагностики — строгое подмножество того, на что смотрят модели.** Дословно: «Because every probe conditions on more than the diagnostic does, and N-BEATS additionally pools across series, the reported associations are conservative: a single-lag within-series statistic ranks the realised error of models with strictly greater access.» `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]` Диагностика видит один лаг, а не объявленное информационное множество целиком. Автор сам перечисляет, откуда низко-AMI ряд всё ещё может быть предсказуем: «from the remainder of the series history, from structure visible only in combinations of lags, from pooled estimation across related series, or from external drivers, hierarchy, or calendar effects the screen cannot capture» `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]`.
+2. **Оценка усечена нулём снизу, и ровно в низком конце.** «raw estimates on white noise are centred on zero at every length (mean −0.0002 nats at T = 48 and +0.0010 at T = 240, with 50 to 57% of raw estimates negative), so the near-zero truncated floor reflects an unbiased estimator rather than a property manufactured by the truncation rule» `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]`. Оговорка написана в защиту от обвинения в артефакте усечения, и в этом качестве она убедительна. Но следствие для нас другое: около нуля — то есть ровно там, где сидел бы останавливающий вердикт, — сырая оценка отрицательна примерно в половине случаев, и разрешающей способности у величины там нет.
+3. **Инференциальный аппарат односторонен по построению.** Нуль — перестановочный: «a permutation test can only exclude an exactly zero association, so statistical significance here carries no evidence of practical magnitude» `[FETCH: https://arxiv.org/pdf/2601.10006v5 · 2026-08-19]`. Такой тест отвергает нулевую зависимость и никогда её не устанавливает.
+4. **Порог выборочно-относительный** — терцили в v4, децили в v5, см. (b) ниже. Даже при верном направлении «низкий» определён относительно распределения этой же выборки.
+
+Механизмы независимы: устранение любого одного асимметрию не снимает.
+
+## Что из этого следует — и чего НЕ следует
+
+**Следует.** Линия Catt не выдаёт вердикта «остаток в объекте, не разворачивайте» даже во временных рядах. Значит она не конкурент за величину блока 2, и это основание прочнее, чем «у него временные ряды»: постановку снимет его же следующая работа, направление оценщика — нет. Перенос AMI в поперечник унаследовал бы асимметрию вместе с оценщиком.
+
+**Не следует, что у Catt ошибка.** Популяционная величина F(h; I_t) в теоретической работе — настоящий потолок относительно объявленного I_t, и останавливающая логика при ней корректна: «when forecastability is near zero, all methods converge toward the same floor» `[FETCH: https://arxiv.org/html/2603.27074v1 · 2026-08-19]`. Разрыв между теоремой и оценщиком автор не прячет — он его перечисляет сам. Писать это как обнаруженный нами дефект — передёргивание, которое снимут. Писать надо как **разграничение того, какие вердикты какая величина способна нести**.
+
+**И следует то, что бьёт по нам.** Тот же фильтр применяется к блоку 2: наша оценка обязана ограничивать долю объекта снизу и обязана объявить направление. Точка, названная потолком, вердикта не несёт. См. `00-context/00-THESIS.md`, раздел «Направленность оценки», и открытую точку отказа там же.
+
 ---
 
 ## Что именно найдено и почему это не тот документ, который ожидался
@@ -93,13 +126,7 @@ v4 заявляет это как основной вклад:
 
 ## Отдельно: величина Catt не может выдать останавливающий вердикт даже у себя дома
 
-Это надо занести, потому что меняет оценку угрозы. v5, дословно:
-
-> «Low AMI does not mean a series should not be forecast; it means the measured single-lag dependence is weak at the relevant horizon, so any forecasting skill must come from information beyond that signal»
-
-> «The reading is therefore **one-sided: high AMI evidences recoverable structure, whereas low AMI does not establish its absence.**»
-
-AMI — оценка **снизу** на доступную зависимость, а не оценка потолка. Из неё следует «здесь структура есть», но не следует «здесь структуры нет». То есть в текущей редакции линия Catt не поддерживает вывод «остаток в объекте, остановитесь» **даже для временных рядов**, а диагностика видит лишь одно лаговое наблюдение, а не объявленное информационное множество целиком.
+**Раздел повышен наверх 2026-08-19 и развёрнут** — см. «НАПРАВЛЕННОСТЬ ОЦЕНКИ» сразу после вердикта. Здесь он стоял предпоследним, и это было неверное место.
 
 ---
 
