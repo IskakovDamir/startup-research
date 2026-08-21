@@ -1,0 +1,470 @@
+loaded rows=1083481 skipped_unlabelled=2367
+[as-given]  L0 K= 58323 occ=0.9697 posmass=0.7669 I_P=0.9676 B_pi=0.8649 B_cv=1.0009 w=0.1360
+[as-given]  L1 K= 22376 occ=0.9898 posmass=0.8848 I_P=0.9663 B_pi=0.9171 B_cv=0.9751 w=0.0579
+[as-given]  L2 K= 10595 occ=0.9958 posmass=0.9313 I_P=0.9659 B_pi=0.9363 B_cv=0.9640 w=0.0277
+[as-given]  L3 K=  2576 occ=0.9992 posmass=0.9859 I_P=0.9656 B_pi=0.9945 B_cv=1.0006 w=0.0061
+[as-given]  L4 K=   825 occ=0.9998 posmass=0.9945 I_P=0.9656 B_pi=0.9961 B_cv=0.9988 w=0.0027
+[as-given]  L5 K=   214 occ=1.0000 posmass=0.9990 I_P=0.9656 B_pi=0.9972 B_cv=0.9980 w=0.0008
+[as-given]  L6 K=    36 occ=1.0000 posmass=0.9997 I_P=0.9656 B_pi=0.9981 B_cv=0.9982 w=0.0001
+[as-given]  L7 K=     6 occ=1.0000 posmass=1.0000 I_P=0.9656 B_pi=0.9983 B_cv=0.9983 w=0.0000
+[as-given]  L8 K=     1 occ=1.0000 posmass=1.0000 I_P=0.9656 B_pi=1.0000 B_cv=1.0000 w=0.0000
+dedup rows=62415 removed=1021066
+[dedup]  L0 K= 58323 occ=0.1311 posmass=0.1474 I_P=0.8689 B_pi=0.4362 B_cv=1.7999 w=1.3638
+[dedup]  L1 K= 22376 occ=0.8069 posmass=0.3414 I_P=0.8483 B_pi=0.7283 B_cv=1.0851 w=0.3568
+[dedup]  L2 K= 10595 occ=0.9226 posmass=0.5415 I_P=0.8415 B_pi=0.8379 B_cv=0.9936 w=0.1556
+[dedup]  L3 K=  2576 occ=0.9850 posmass=0.8271 I_P=0.8370 B_pi=0.9326 B_cv=0.9625 w=0.0299
+[dedup]  L4 K=   825 occ=0.9967 posmass=0.9311 I_P=0.8366 B_pi=0.9603 B_cv=0.9730 w=0.0126
+[dedup]  L5 K=   214 occ=0.9997 posmass=0.9856 I_P=0.8363 B_pi=0.9748 B_cv=0.9785 w=0.0037
+[dedup]  L6 K=    36 occ=1.0000 posmass=0.9961 I_P=0.8363 B_pi=0.9933 B_cv=0.9941 w=0.0008
+[dedup]  L7 K=     6 occ=1.0000 posmass=1.0000 I_P=0.8363 B_pi=0.9955 B_cv=0.9956 w=0.0001
+[dedup]  L8 K=     1 occ=1.0000 posmass=1.0000 I_P=0.8363 B_pi=1.0000 B_cv=1.0000 w=0.0000
+{
+ "as_given": {
+  "tag": "as-given",
+  "n": 1083481,
+  "pi": 0.01719827112796625,
+  "order": [
+   "trafficway_type",
+   "traffic_control_device",
+   "first_crash_type",
+   "weather_condition",
+   "road_defect",
+   "roadway_surface_cond",
+   "alignment",
+   "lighting_condition"
+  ],
+  "cardinalities": {
+   "trafficway_type": 20,
+   "traffic_control_device": 19,
+   "first_crash_type": 18,
+   "weather_condition": 12,
+   "road_defect": 7,
+   "roadway_surface_cond": 7,
+   "alignment": 6,
+   "lighting_condition": 6
+  },
+  "levels": [
+   {
+    "level": "L0",
+    "K_occupied": 58323,
+    "occ": 0.9696662885643588,
+    "I_P": 0.9675951862561503,
+    "pos_mass": 0.7669363837483075,
+    "B_pi": 0.8648838935838202,
+    "B_cv": 1.0009283955862076,
+    "bracket_width": 0.13604450200238738,
+    "B_L": 0.8387406090608907,
+    "B_boot_median": 0.8424076497620523
+   },
+   {
+    "level": "L1",
+    "K_occupied": 22376,
+    "occ": 0.9897635491531462,
+    "I_P": 0.9662919792779016,
+    "pos_mass": 0.8847870890214041,
+    "B_pi": 0.9171291366156535,
+    "B_cv": 0.9750786274177259,
+    "bracket_width": 0.057949490802072345
+   },
+   {
+    "level": "L2",
+    "K_occupied": 10595,
+    "occ": 0.995751656005043,
+    "I_P": 0.9659061857106862,
+    "pos_mass": 0.9313379745468541,
+    "B_pi": 0.9362595882774294,
+    "B_cv": 0.9640045268541197,
+    "bracket_width": 0.02774493857669036
+   },
+   {
+    "level": "L3",
+    "K_occupied": 2576,
+    "occ": 0.9991508849716793,
+    "I_P": 0.9656422216910125,
+    "pos_mass": 0.9859139200410528,
+    "B_pi": 0.9944667892319724,
+    "B_cv": 1.000556128765962,
+    "bracket_width": 0.006089339533989491
+   },
+   {
+    "level": "L4",
+    "K_occupied": 825,
+    "occ": 0.9998126409230987,
+    "I_P": 0.9656219167664223,
+    "pos_mass": 0.9945065949472118,
+    "B_pi": 0.9961001219365199,
+    "B_cv": 0.9987634738955206,
+    "bracket_width": 0.0026633519590006927
+   },
+   {
+    "level": "L5",
+    "K_occupied": 214,
+    "occ": 0.9999815409776452,
+    "I_P": 0.9656053036463029,
+    "pos_mass": 0.9990410537886681,
+    "B_pi": 0.9972483486714613,
+    "B_cv": 0.998044102153804,
+    "bracket_width": 0.0007957534823427315
+   },
+   {
+    "level": "L6",
+    "K_occupied": 36,
+    "occ": 1.0,
+    "I_P": 0.9656034577440675,
+    "pos_mass": 0.9997203458113247,
+    "B_pi": 0.9980643336242068,
+    "B_cv": 0.9982029252186702,
+    "bracket_width": 0.00013859159446338865
+   },
+   {
+    "level": "L7",
+    "K_occupied": 6,
+    "occ": 1.0,
+    "I_P": 0.9656034577440675,
+    "pos_mass": 1.0,
+    "B_pi": 0.9982945155893057,
+    "B_cv": 0.9983110919542065,
+    "bracket_width": 1.657636490082215e-05
+   },
+   {
+    "level": "L8",
+    "K_occupied": 1,
+    "occ": 1.0,
+    "I_P": 0.9656034577440675,
+    "pos_mass": 1.0,
+    "B_pi": 0.9999999999999998,
+    "B_cv": 1.0000000001076605,
+    "bracket_width": 1.076607691885556e-10
+   }
+  ],
+  "reading_level": "L0",
+  "D_a": false,
+  "sigma_ours": 0.052208096491020976,
+  "sigma_naive": 0.13000957887084788,
+  "near": [
+   {
+    "p_t": 0.008599135563983125,
+    "band": "near",
+    "U_ours": 0.022348376129735892,
+    "U_naive": 0.06137503038447605,
+    "ratio": 2.746285905883461,
+    "overlap": true
+   },
+   {
+    "p_t": 0.012898703345974687,
+    "band": "near",
+    "U_ours": 0.024356808117340496,
+    "U_naive": 0.06371235046327978,
+    "ratio": 2.6157922727945886,
+    "overlap": true
+   },
+   {
+    "p_t": 0.01719827112796625,
+    "band": "near",
+    "U_ours": 0.02656084892674154,
+    "U_naive": 0.06614232304010113,
+    "ratio": 2.490218713360056,
+    "overlap": true
+   },
+   {
+    "p_t": 0.025797406691949375,
+    "band": "near",
+    "U_ours": 0.02274290744651656,
+    "U_naive": 0.06245852617918045,
+    "ratio": 2.7462859058834614,
+    "overlap": true
+   },
+   {
+    "p_t": 0.0343965422559325,
+    "band": "near",
+    "U_ours": 0.019557506094287868,
+    "U_naive": 0.05900139804584191,
+    "ratio": 3.0168160378625353,
+    "overlap": true
+   }
+  ],
+  "far": [
+   {
+    "p_t": 0.1,
+    "band": "far",
+    "U_ours": 0.00838055542543492,
+    "U_naive": 0.039631430883229506,
+    "ratio": 4.728974259026845,
+    "overlap": true
+   },
+   {
+    "p_t": 0.2,
+    "band": "far",
+    "U_ours": 0.004568237081937418,
+    "U_naive": 0.025948223289260098,
+    "ratio": 5.680139367516209,
+    "overlap": true
+   },
+   {
+    "p_t": 0.3,
+    "band": "far",
+    "U_ours": 0.0034133572943727463,
+    "U_naive": 0.020323344473766367,
+    "ratio": 5.954063029754134,
+    "overlap": true
+   },
+   {
+    "p_t": 0.5,
+    "band": "far",
+    "U_ours": 0.0028145751592874024,
+    "U_naive": 0.017198271127966236,
+    "ratio": 6.110432358225074,
+    "overlap": true
+   }
+  ],
+  "at_pi": {
+   "p_t": 0.01719827112796625,
+   "band": "at_pi",
+   "U_ours": 0.02656084892674154,
+   "U_naive": 0.06614232304010113,
+   "ratio": 2.490218713360056,
+   "overlap": true
+  },
+  "R1p": true,
+  "R2p": true,
+  "R3p": true,
+  "R1pp": true,
+  "D_b": false,
+  "D_c": false,
+  "D_d": false,
+  "D_e": false,
+  "far_flip": true,
+  "verdict": "REGION NON-EMPTY NEAR THE BASE RATE",
+  "margins": {
+   "occ": 0.07740698729373197,
+   "bracket": 0.4558219919904505,
+   "B_L": 0.6774812181217813
+  },
+  "skipped_unlabelled": 2367
+ },
+ "dedup": {
+  "tag": "dedup",
+  "n": 62415,
+  "pi": 0.08185532323960587,
+  "order": [
+   "trafficway_type",
+   "traffic_control_device",
+   "first_crash_type",
+   "weather_condition",
+   "road_defect",
+   "roadway_surface_cond",
+   "alignment",
+   "lighting_condition"
+  ],
+  "cardinalities": {
+   "trafficway_type": 20,
+   "traffic_control_device": 19,
+   "first_crash_type": 18,
+   "weather_condition": 12,
+   "road_defect": 7,
+   "roadway_surface_cond": 7,
+   "alignment": 6,
+   "lighting_condition": 6
+  },
+  "levels": [
+   {
+    "level": "L0",
+    "K_occupied": 58323,
+    "occ": 0.13112232636385485,
+    "I_P": 0.8688776736361452,
+    "pos_mass": 0.1474164864215333,
+    "B_pi": 0.43617282698998294,
+    "B_cv": 1.7999297430673473,
+    "bracket_width": 1.3637569160773644
+   },
+   {
+    "level": "L1",
+    "K_occupied": 22376,
+    "occ": 0.8068573259633101,
+    "I_P": 0.8483056957462148,
+    "pos_mass": 0.3413602499399183,
+    "B_pi": 0.728270426792058,
+    "B_cv": 1.0851149842962675,
+    "bracket_width": 0.3568445575042095
+   },
+   {
+    "level": "L2",
+    "K_occupied": 10595,
+    "occ": 0.9225666906993512,
+    "I_P": 0.8414804133621726,
+    "pos_mass": 0.5414724024673556,
+    "B_pi": 0.8379409463215702,
+    "B_cv": 0.9935541233308982,
+    "bracket_width": 0.15561317700932797,
+    "B_L": 0.7949732427616221,
+    "B_boot_median": 0.8009403415008325
+   },
+   {
+    "level": "L3",
+    "K_occupied": 2576,
+    "occ": 0.9849555395337659,
+    "I_P": 0.8369622686854121,
+    "pos_mass": 0.8270928462709285,
+    "B_pi": 0.9325927251137586,
+    "B_cv": 0.9624965786613736,
+    "bracket_width": 0.029903853547615045
+   },
+   {
+    "level": "L4",
+    "K_occupied": 825,
+    "occ": 0.99671553312505,
+    "I_P": 0.8366097893134663,
+    "pos_mass": 0.9311223263638548,
+    "B_pi": 0.9603235790374927,
+    "B_cv": 0.9729549753231127,
+    "bracket_width": 0.012631396285620045
+   },
+   {
+    "level": "L5",
+    "K_occupied": 214,
+    "occ": 0.999679564207322,
+    "I_P": 0.836321397100056,
+    "pos_mass": 0.9856444764880237,
+    "B_pi": 0.9748310505572941,
+    "B_cv": 0.9785212931062838,
+    "bracket_width": 0.0036902425489896418
+   },
+   {
+    "level": "L6",
+    "K_occupied": 36,
+    "occ": 1.0,
+    "I_P": 0.8362893535207883,
+    "pos_mass": 0.9961067051189618,
+    "B_pi": 0.9933200436051391,
+    "B_cv": 0.9941269504393174,
+    "bracket_width": 0.0008069068341782781
+   },
+   {
+    "level": "L7",
+    "K_occupied": 6,
+    "occ": 1.0,
+    "I_P": 0.8362893535207883,
+    "pos_mass": 1.0,
+    "B_pi": 0.9954627958188665,
+    "B_cv": 0.9955563829142753,
+    "bracket_width": 9.358709540874255e-05
+   },
+   {
+    "level": "L8",
+    "K_occupied": 1,
+    "occ": 1.0,
+    "I_P": 0.8362893535207883,
+    "pos_mass": 1.0,
+    "B_pi": 1.0,
+    "B_cv": 1.0000000062409717,
+    "bracket_width": 6.240971739401857e-09
+   }
+  ],
+  "reading_level": "L2",
+  "D_a": false,
+  "sigma_ours": 0.12413215516902955,
+  "sigma_naive": 0.27414417611349234,
+  "near": [
+   {
+    "p_t": 0.040927661619802935,
+    "band": "near",
+    "U_ours": 0.04680439445186436,
+    "U_naive": 0.12316838096870386,
+    "ratio": 2.6315559128828276,
+    "overlap": true
+   },
+   {
+    "p_t": 0.0613914924297044,
+    "band": "near",
+    "U_ours": 0.05611700753546675,
+    "U_naive": 0.13554269763510757,
+    "ratio": 2.4153586156468276,
+    "overlap": false
+   },
+   {
+    "p_t": 0.08185532323960587,
+    "band": "near",
+    "U_ours": 0.06759945263039628,
+    "U_naive": 0.14929247157473585,
+    "ratio": 2.208486396938754,
+    "overlap": false
+   },
+   {
+    "p_t": 0.1227829848594088,
+    "band": "near",
+    "U_ours": 0.051171830070150165,
+    "U_naive": 0.13466153199413894,
+    "ratio": 2.6315559128828276,
+    "overlap": false
+   },
+   {
+    "p_t": 0.16371064647921174,
+    "band": "near",
+    "U_ours": 0.039959805757144244,
+    "U_naive": 0.1221158496519068,
+    "ratio": 3.0559670483401744,
+    "overlap": true
+   }
+  ],
+  "far": [
+   {
+    "p_t": 0.1,
+    "band": "far",
+    "U_ours": 0.0596147742368594,
+    "U_naive": 0.1425551725565628,
+    "ratio": 2.3912725390885057,
+    "overlap": false
+   },
+   {
+    "p_t": 0.2,
+    "band": "far",
+    "U_ours": 0.033264513509605916,
+    "U_naive": 0.11273353390052618,
+    "ratio": 3.3890029345528143,
+    "overlap": true
+   },
+   {
+    "p_t": 0.3,
+    "band": "far",
+    "U_ours": 0.02346081973327252,
+    "U_naive": 0.0944293224852558,
+    "ratio": 4.024979670737361,
+    "overlap": true
+   },
+   {
+    "p_t": 0.5,
+    "band": "far",
+    "U_ours": 0.01803620618836893,
+    "U_naive": 0.08185532323960587,
+    "ratio": 4.5383891925338595,
+    "overlap": true
+   }
+  ],
+  "at_pi": {
+   "p_t": 0.08185532323960587,
+   "band": "at_pi",
+   "U_ours": 0.06759945263039628,
+   "U_naive": 0.14929247157473585,
+   "ratio": 2.208486396938754,
+   "overlap": false
+  },
+  "R1p": true,
+  "R2p": true,
+  "R3p": false,
+  "R1pp": true,
+  "D_b": false,
+  "D_c": false,
+  "D_d": false,
+  "D_e": false,
+  "far_flip": true,
+  "verdict": "REGION EMPTY",
+  "margins": {
+   "occ": 0.02507410077705674,
+   "bracket": 0.3775472919626881,
+   "B_L": 0.5899464855232441
+  }
+ },
+ "dedup_removed": 1021066,
+ "dedup_flips_a_clause": true,
+ "final_verdict": "D (fragile under declared deduplication)"
+}

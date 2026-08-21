@@ -29,26 +29,43 @@ TARGET = 'most_severe_injury'
 POSITIVE = {'FATAL', 'INCAPACITATING INJURY'}
 
 
-def load(path, dedup=False):
+def load(path):
+    """Single streaming pass: keeps only integer codes, never a list of dicts."""
     with open(path, newline='') as fh:
-        rows = [r for r in csv.DictReader(fh) if (r.get(TARGET) or '').strip()]
-    if dedup:
-        seen, keep = set(), []
-        for r in rows:
-            k = tuple((r[f] or '').strip() for f in S) + ((r[TARGET] or '').strip(),)
-            if k in seen:
+        rd = csv.reader(fh)
+        hdr = next(rd)
+        ci = {name: hdr.index(name) for name in S + [TARGET]}
+        maps = [dict() for _ in S]
+        cols = [[] for _ in S]
+        ys = []
+        skipped = 0
+        for row in rd:
+            lab = (row[ci[TARGET]] or '').strip()
+            if not lab:
+                skipped += 1
                 continue
-            seen.add(k); keep.append(r)
-        rows = keep
-    y = np.array([1 if (r[TARGET] or '').strip().upper() in POSITIVE else 0 for r in rows],
-                 dtype=np.int64)
-    codes, cards = {}, {}
+            ys.append(1 if lab.upper() in POSITIVE else 0)
+            for a, f in enumerate(S):
+                v = (row[ci[f]] or '').strip() or '__MISSING__'
+                m = maps[a]
+                c = m.get(v)
+                if c is None:
+                    c = len(m); m[v] = c
+                cols[a].append(c)
+    y = np.array(ys, dtype=np.int64)
+    codes = {f: np.array(cols[a], dtype=np.int64) for a, f in enumerate(S)}
+    cards = {f: len(maps[a]) for a, f in enumerate(S)}
+    return y, codes, cards, skipped
+
+
+def dedup(y, codes, cards):
+    """Collapse rows identical on the declared feature set and the outcome."""
+    key = y.copy()
     for f in S:
-        vals = [((r[f] or '').strip() or '__MISSING__') for r in rows]
-        uniq = sorted(set(vals)); idx = {v: i for i, v in enumerate(uniq)}
-        codes[f] = np.array([idx[v] for v in vals], dtype=np.int64)
-        cards[f] = len(uniq)
-    return y, codes, cards
+        key = key * cards[f] + codes[f]
+    _, first = np.unique(key, return_index=True)
+    first = np.sort(first)
+    return y[first], {f: codes[f][first] for f in S}, cards
 
 
 def evaluate(y, codes, cards, tag):
@@ -128,12 +145,18 @@ def evaluate(y, codes, cards, tag):
 
 if __name__ == '__main__':
     path = sys.argv[1]
-    main_res = evaluate(*load(path, dedup=False), tag='as-given')
-    dedup_res = evaluate(*load(path, dedup=True), tag='dedup')
+    y, codes, cards, skipped = load(path)
+    print(f"loaded rows={len(y)} skipped_unlabelled={skipped}", flush=True)
+    main_res = evaluate(y, codes, cards, tag='as-given')
+    main_res['skipped_unlabelled'] = skipped
+    dy, dcodes, dcards = dedup(y, codes, cards)
+    print(f"dedup rows={len(dy)} removed={len(y)-len(dy)}", flush=True)
+    dedup_res = evaluate(dy, dcodes, dcards, tag='dedup')
     fragile = (main_res.get('R1p') != dedup_res.get('R1p')
                or main_res.get('R3p') != dedup_res.get('R3p')
                or main_res.get('D_b') != dedup_res.get('D_b'))
     final = main_res['verdict'] if not fragile else 'D (fragile under declared deduplication)'
     print(json.dumps({'as_given': main_res, 'dedup': dedup_res,
+                      'dedup_removed': int(len(y) - len(dy)),
                       'dedup_flips_a_clause': fragile, 'final_verdict': final},
                      indent=1, default=float))
